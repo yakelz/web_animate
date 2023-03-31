@@ -1,5 +1,14 @@
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
+document.addEventListener('DOMContentLoaded', function () {
+	const burger = document.querySelector('.header__burger');
+	const menu = document.querySelector('.header__menu');
 
+	burger.addEventListener('click', function () {
+		burger.classList.toggle('active');
+		menu.classList.toggle('active');
+	});
+});
+
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
 
 if (ScrollTrigger.isTouch !== 1) {
 
@@ -44,32 +53,30 @@ if (ScrollTrigger.isTouch !== 1) {
 			scrollTrigger: {
 				trigger: item,
 				start: "top 90%",
-      end: "bottom 70%",
+				end: "bottom 70%",
 				scrub: true
 			}
 		})
 	})
 
 
-    gsap.set(".sound__image img", { y: -200});
-    
-    const tl = gsap.timeline({
-        scrollTrigger: {
-            trigger: ".sound__image",
-            start: "top center",
+	gsap.set(".sound__image img", { y: -200 });
+
+	const tl = gsap.timeline({
+		scrollTrigger: {
+			trigger: ".sound__image",
+			start: "top center",
 			end: '-40',
 			scrub: true
-        }
-    });
-    tl.to(".sound__image img:nth-child(6)", { y: 0, opacity: 1, duration: 0.6 })
-      .to(".sound__image img:nth-child(5)", { y: 0, opacity: 1, duration: 0.6 })
-      .to(".sound__image img:nth-child(4)", { y: 0, opacity: 1, duration: 0.6 })
-      .to(".sound__image img:nth-child(3)", { y: 0, opacity: 1, duration: 0.6 })
-      .to(".sound__image img:nth-child(2)", { y: 0, opacity: 1, duration: 0.6 })
-      .to(".sound__image img:nth-child(1)", { y: 0, opacity: 1, duration: 0.6 });
-
-	  
-
+		}
+	});
+	tl.to(".sound__image img:nth-child(6)", { y: 0, opacity: 1, duration: 0.6 })
+		.to(".sound__image img:nth-child(5)", { y: 0, opacity: 1, duration: 0.6 })
+		.to(".sound__image img:nth-child(4)", { y: 0, opacity: 1, duration: 0.6 })
+		.to(".sound__image img:nth-child(3)", { y: 0, opacity: 1, duration: 0.6 })
+		.to(".sound__image img:nth-child(2)", { y: 0, opacity: 1, duration: 0.6 })
+		.to(".sound__image img:nth-child(1)", { y: 0, opacity: 1, duration: 0.6 });
 
 
 }
+
